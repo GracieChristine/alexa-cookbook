@@ -14,6 +14,17 @@
     },
     {
       "intent": "AMAZON.CancelIntent"
+    },
+
+
+    {
+      "intent": "MyNameIsIntent",
+      "slots":[
+        {
+          "name":"firstname",
+          "type":"AMAZON.US_FIRST_NAME"
+        }
+      ]
     }
   ]
 }

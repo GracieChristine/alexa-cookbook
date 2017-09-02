@@ -16,6 +16,8 @@ var handlers = {
         this.emit('AMAZON.HelpIntent');
         this.emit('AMAZON.StopIntent');
         this.emit('AMAZON.CancelIntent');
+
+        this.emit('MyNameIsIntent');
     },
 
     // Tell hello world
@@ -41,5 +43,11 @@ var handlers = {
     // Cancel / Cancel it
     'AMAZON.CancelIntent': function () {
         this.emit(':tell', 'Confirm cancellation from Alexa.');
+    },
+
+    // My name is {firstname}
+    'MyNameIsIntent': function () {
+      var myName = this.event.request.intent.slots.firstname.value;
+        this.emit(':tell', `Alexa is confirming you are indeed ${myName}.`);
     }
 };
