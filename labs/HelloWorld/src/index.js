@@ -1,7 +1,8 @@
-var Alexa = require('alexa-sdk');
+let Alexa = require('alexa-sdk');
+let myRequest = 'Florida';
 
 exports.handler = function(event, context, callback) {
-  var alexa = Alexa.handler(event, context);
+  let alexa = Alexa.handler(event, context);
 
   // alexa.dynamoDBTableName = 'YourTableName'; // creates new table for userid:session.attributes
 
@@ -9,7 +10,7 @@ exports.handler = function(event, context, callback) {
   alexa.execute();
 };
 
-var handlers = {
+let handlers = {
   'LaunchRequest': function() {
     this.emit('MyIntent');
     this.emit('WhatsUpIntent');
@@ -18,6 +19,8 @@ var handlers = {
     this.emit('AMAZON.CancelIntent');
 
     this.emit('MyNameIsIntent');
+
+    this.emit('DestinationIntent');
   },
 
   // Tell hello world
@@ -62,5 +65,19 @@ var handlers = {
     let myName = this.event.request.intent.slots.firstname.value;
     this.attributes['name'] = myName;
     this.emit(':tell', `Nice to meet you, ${myName}.`);
-  }
+  },
+
+  // Calling Web Services
+  // 'DestinationIntent': function() {
+  //
+  //   httpsGet(myRequest, (myResult) => {
+  //     console.log("sent     : " + myRequest);
+  //     console.log("received : " + myResult);
+  //
+  //     this.response.speak('The population of ' + myRequest + ' is ' + myResult);
+  //     this.emit(':responseReady');
+  //
+  //   });
+  //
+  // }
 };
