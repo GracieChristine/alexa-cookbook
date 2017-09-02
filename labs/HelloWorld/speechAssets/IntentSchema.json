@@ -1,9 +1,11 @@
 {
   "intents": [
     {
-      "intent": "MyIntent",  "slots":[]
+      "intent": "MyIntent"
     },
-
+    {
+      "intent": "WhatsUpIntent"
+    },
     {
       "intent": "AMAZON.HelpIntent"
     },
