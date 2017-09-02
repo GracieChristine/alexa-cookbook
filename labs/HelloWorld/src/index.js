@@ -1,5 +1,4 @@
 let Alexa = require('alexa-sdk');
-let myRequest = 'Florida';
 
 exports.handler = function(event, context, callback) {
   let alexa = Alexa.handler(event, context);
@@ -67,17 +66,5 @@ let handlers = {
     this.emit(':tell', `Nice to meet you, ${myName}.`);
   },
 
-  // Calling Web Services
-  // 'DestinationIntent': function() {
-  //
-  //   httpsGet(myRequest, (myResult) => {
-  //     console.log("sent     : " + myRequest);
-  //     console.log("received : " + myResult);
-  //
-  //     this.response.speak('The population of ' + myRequest + ' is ' + myResult);
-  //     this.emit(':responseReady');
-  //
-  //   });
-  //
-  // }
+  
 };
